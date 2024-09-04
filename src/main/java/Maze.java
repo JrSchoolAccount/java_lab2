@@ -9,7 +9,11 @@ public class Maze {
         for (int i = 0; i < rowsX; i++) {
             List<Cell> x = new ArrayList<>();
             for (int j = 0; j < colsY; j++) {
-                x.add(new Cell(i, j));
+                if (i == 0 || i == rowsX - 1 || j == 0 || j == colsY - 1) {
+                    x.add(new Cell(i, j, 'W'));
+                } else {
+                    x.add(new Cell(i, j));
+                }
             }
             grid.add(x);
         }
@@ -24,12 +28,12 @@ public class Maze {
     }
 
     public void printMap() {
-        for (List<Cell> x : grid) {
-            for (Cell cell : x) {
-                System.out.println(cell.getSymbol() + " ");
+        for (List<Cell> row : grid) {
+            for (Cell cell : row) {
+                System.out.print(cell.getSymbol() + " ");
             }
             System.out.println();
         }
-}
+    }
 }
 

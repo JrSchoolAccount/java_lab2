@@ -3,20 +3,17 @@ import java.util.List;
 
 public class Player {
     private String name;
-    private int x, y;
-    private int health = 10;
-    private int attack = 3;
-    private int defence = 3;
+    private int x, y, health, attack, defense;
     private int damageTaken = 0;
     private List<Item> items;
 
-    public Player(String name, int x, int y, int health, int attack, int defence) {
+    public Player(String name, int x, int y, int health, int attack, int defense) {
         this.name = name;
         this.x = x;
         this.y = y;
         this.health = health;
         this.attack = attack;
-        this.defence = defence;
+        this.defense = defense;
         this.items = new ArrayList<>();
     }
 
@@ -27,12 +24,12 @@ public class Player {
 
     public void pickUpItem(Item item) {
         items.add(item);
-        item.applyEffect(this);
+        // item.applyEffect(this);
     }
 
     public void destroyItem(Item item) {
         items.remove(item);
-        item.removeEffect(this);
+        // item.removeEffect(this);
     }
 
     public void heal(int amount) {
@@ -46,6 +43,14 @@ public class Player {
         return name;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
     public int getHealth() {
         return health;
     }
@@ -54,8 +59,8 @@ public class Player {
         return attack;
     }
 
-    public int getDefence() {
-        return defence;
+    public int getDefense() {
+        return defense;
     }
 
     public int getDamageTaken() {
