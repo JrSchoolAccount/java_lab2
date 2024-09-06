@@ -1,6 +1,7 @@
 public class Cell {
     private int x, y;
     private char symbol;
+    private Item item;
 
     public Cell(int x, int y, char symbol) {
         this.x = x;
@@ -26,5 +27,14 @@ public class Cell {
 
     public void setSymbol(char symbol) {
         this.symbol = symbol;
+    }
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+        this.symbol = item != null ? item.getSymbol() : '.';
     }
 }

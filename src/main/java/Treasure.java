@@ -1,5 +1,4 @@
 public class Treasure extends Item {
-
     private final int value;
 
     public Treasure(int x, int y, int value) {

@@ -5,7 +5,6 @@ public class Player implements Movable {
     private String name;
     private int x, y, health, attack, defense;
     private int damageTaken, points = 0;
-    private List<Item> items;
 
     public Player(String name, int x, int y, int health, int attack, int defense) {
         this.name = name;
@@ -14,31 +13,28 @@ public class Player implements Movable {
         this.health = health;
         this.attack = attack;
         this.defense = defense;
-        this.items = new ArrayList<>();
     }
 
     @Override
     public void move(int dx, int dy, Maze maze) {
         int newX = x + dx;
         int newY = y + dy;
+
         if (maze.isWalkable(newX, newY)) {
             x = newX;
             y = newY;
-            // item interaction HERE
-        }
-        else {
+
+            Cell cell = maze.getCell(x, y);
+            Item item = cell.getItem();
+
+            if (item != null) {
+                item.interact(this);
+                cell.setItem(null);
+            }
+            maze.updatePlayerPosition(this);
+        } else {
             System.out.println("You can't move there!!");
         }
-    }
-
-    public void pickUpItem(Item item) {
-        items.add(item);
-        // item.applyEffect(this);
-    }
-
-    public void destroyItem(Item item) {
-        items.remove(item);
-        // item.removeEffect(this);
     }
 
     public void heal(int amount) {

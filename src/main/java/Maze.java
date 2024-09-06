@@ -10,7 +10,7 @@ public class Maze {
             List<Cell> x = new ArrayList<>();
             for (int j = 0; j < colsY; j++) {
                 if (i == 0 || i == rowsX - 1 || j == 0 || j == colsY - 1) {
-                    x.add(new Cell(i, j, 'W'));
+                    x.add(new Wall(i, j));
                 } else {
                     x.add(new Cell(i, j));
                 }
@@ -20,10 +20,16 @@ public class Maze {
     }
 
     public Cell getCell(int x, int y) {
+        if (x < 0 || y < 0 || x >= grid.size() || y >= grid.getFirst().size()) {
+            throw new IndexOutOfBoundsException("Cell coordinates out of bounds");
+        }
         return grid.get(x).get(y);
     }
 
     public void setCell(int x, int y, Cell cell) {
+        if (x < 0 || y < 0 || x >= grid.size() || y >= grid.getFirst().size()) {
+            throw new IndexOutOfBoundsException("Cell coordinates out of bounds");
+        }
         grid.get(x).set(y, cell);
     }
 
@@ -42,6 +48,17 @@ public class Maze {
             }
             System.out.println();
         }
+    }
+
+    public void updatePlayerPosition(Player player) {
+        for (List<Cell> row : grid) {
+            for (Cell cell : row) {
+                if (cell.getSymbol() == 'P') {
+                    cell.setSymbol('.');
+                }
+            }
+        }
+        getCell(player.getX(), player.getY()).setSymbol('P');
     }
 }
 
