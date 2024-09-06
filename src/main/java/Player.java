@@ -19,6 +19,16 @@ public class Player implements Movable {
 
     @Override
     public void move(int dx, int dy, Maze maze) {
+        int newX = x + dx;
+        int newY = y + dy;
+        if (maze.isWalkable(newX, newY)) {
+            x = newX;
+            y = newY;
+            // item interaction HERE
+        }
+        else {
+            System.out.println("You can't move there!!");
+        }
     }
 
     public void pickUpItem(Item item) {

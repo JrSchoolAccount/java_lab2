@@ -27,6 +27,14 @@ public class Maze {
         grid.get(x).set(y, cell);
     }
 
+    public boolean isWalkable(int x, int y) {
+        Cell cell = getCell(x, y);
+        if (cell instanceof Obstacle) {
+            return !((Obstacle) cell).isBlocking();
+        }
+        return true;
+    }
+
     public void printMap() {
         for (List<Cell> row : grid) {
             for (Cell cell : row) {
