@@ -4,7 +4,7 @@ import java.util.List;
 public class Player {
     private String name;
     private int x, y, health, attack, defense;
-    private int damageTaken = 0;
+    private int damageTaken, points = 0;
     private List<Item> items;
 
     public Player(String name, int x, int y, int health, int attack, int defense) {
@@ -39,6 +39,10 @@ public class Player {
         }
     }
 
+    public int getRemainingHealth() {
+        return this.health - this.damageTaken;
+    }
+
     public String getName() {
         return name;
     }
@@ -63,7 +67,23 @@ public class Player {
         return defense;
     }
 
+    public int getPoints() {
+        return points;
+    }
+
     public int getDamageTaken() {
         return damageTaken;
+    }
+
+    public void increaseAttack(int value) {
+        attack += value;
+    }
+
+    public void increaseDefense(int value) {
+        defense += value;
+    }
+
+    public void addPoints(int value) {
+        points += value;
     }
 }
