@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player {
+public class Player implements Movable {
     private String name;
     private int x, y, health, attack, defense;
     private int damageTaken, points = 0;
@@ -17,9 +17,8 @@ public class Player {
         this.items = new ArrayList<>();
     }
 
-    public void move(int dx, int dy) {
-        x += dx;
-        y += dy;
+    @Override
+    public void move(int dx, int dy, Maze maze) {
     }
 
     public void pickUpItem(Item item) {
