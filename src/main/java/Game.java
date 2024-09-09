@@ -6,22 +6,32 @@ public class Game {
     private Maze maze;
     private Player player;
     private List<Monster> monsters;
+    private List<Item> items;
 
     public Game() {
         maze = new Maze(9, 9);
+        monsters = new ArrayList<>();
+        items = new ArrayList<>();
 
         maze.setCell(2, 1, new Wall(2, 1));
 
         player = new Player("Hero", 0, 1, 5, 3, 3);
 
-        monsters = new ArrayList<>();
         monsters.add(new Monster("Goblin", 4, 4, 10, 2, 1));
         monsters.add(new Monster("Orc", 5, 5, 15, 3, 3));
+
+        items.add(new Treasure(1, 1, 2));
+        items.add(new Treasure(2, 3, 2));
+
 
         maze.getCell(player.getX(), player.getY()).setSymbol('P');
 
         for (Monster monster : monsters) {
             maze.getCell(monster.getX(), monster.getY()).setSymbol('M');
+        }
+
+        for (Item item : items) {
+            maze.getCell(item.getX(), item.getY()).setItem(item);
         }
     }
 

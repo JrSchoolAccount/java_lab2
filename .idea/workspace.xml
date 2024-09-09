@@ -5,13 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2fb09f0e-f195-4726-b479-21a9b8365c83" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Maze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Treasure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Treasure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Upgrade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Upgrade.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +61,7 @@
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "editing.templates",
+    "settings.editor.selected.configurable": "editor.preferences.smartKeys",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -88,7 +83,7 @@
       <updated>1725278047756</updated>
       <workItem from="1725278048795" duration="31761000" />
       <workItem from="1725535747107" duration="4452000" />
-      <workItem from="1725867076049" duration="8940000" />
+      <workItem from="1725867076049" duration="11020000" />
     </task>
     <servers />
   </component>
