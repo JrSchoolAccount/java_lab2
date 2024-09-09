@@ -16,13 +16,15 @@ public class Game {
         maze.setCell(2, 1, new Wall(2, 1));
 
         player = new Player("Hero", 0, 1, 5, 3, 3);
-
+        /*
         monsters.add(new Monster("Goblin", 4, 4, 10, 2, 1));
         monsters.add(new Monster("Orc", 5, 5, 15, 3, 3));
 
         items.add(new Treasure(1, 1, 2));
         items.add(new Treasure(2, 3, 2));
-
+        */
+        items.add(new Upgrade(1, 1,"weapon", 2));
+        items.add(new Upgrade(1, 2,"armor", 2));
 
         maze.getCell(player.getX(), player.getY()).setSymbol('P');
 
