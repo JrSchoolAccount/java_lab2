@@ -42,6 +42,7 @@ public class Game {
         String input;
 
         while (true) {
+            displayPlayerStats();
             maze.printMap();
             System.out.println("\nEnter move (up, down, left, right):");
             input = sc.nextLine().toLowerCase();
@@ -71,6 +72,14 @@ public class Game {
                 maze.updateMonsterPosition(monsters);
             }
         }
+    }
+
+    private void displayPlayerStats() {
+        System.out.println("Name: " + player.getName() +
+                ", HP: " + player.getHealth() +
+                ", ATK: " + player.getAttack() +
+                ", DEF: " + player.getDefense() +
+                ", Score: " + player.getPoints());
     }
 
     public static void main(String[] args) {
