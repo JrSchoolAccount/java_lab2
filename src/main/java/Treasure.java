@@ -8,7 +8,7 @@ public class Treasure extends Item {
 
     @Override
     public void interact(Player player) {
-        System.out.println("You found a treasure worth " + value + " points!");
         player.addPoints(value);
+        System.out.println("You found a treasure worth " + value + " points!");
     }
 }

@@ -35,6 +35,11 @@ public class Maze {
 
     public boolean isWalkable(int x, int y) {
         Cell cell = getCell(x, y);
+
+        if (cell.getSymbol() == 'M' || cell.getSymbol() == 'P') {
+            return false;
+        }
+
         if (cell instanceof Obstacle) {
             return !((Obstacle) cell).isBlocking();
         }
@@ -60,5 +65,19 @@ public class Maze {
         }
         getCell(player.getX(), player.getY()).setSymbol('P');
     }
+
+    public void updateMonsterPosition(List<Monster> monsters) {
+        for (List<Cell> row : grid) {
+            for (Cell cell : row) {
+                if (cell.getSymbol() == 'M') {
+                    cell.setSymbol('.');
+                }
+            }
+        }
+
+        for (Monster monster : monsters) {
+            getCell(monster.getX(), monster.getY()).setSymbol('M');
+    }
+}
 }
 

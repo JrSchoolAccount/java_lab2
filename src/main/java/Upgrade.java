@@ -11,11 +11,11 @@ public class Upgrade extends Item {
     @Override
     public void interact(Player player) {
         if (type.equals("weapon")) {
-            System.out.println("You found a weapon! Attack increased by " + bonus);
             player.increaseAttack(bonus);
+            System.out.println("You found a weapon! Attack increased by " + bonus);
         } else if (type.equals("armor")) {
-            System.out.println("You found armor! Defense increased by " + bonus);
             player.increaseDefense(bonus);
+            System.out.println("You found armor! Defense increased by " + bonus);
         }
     }
 }

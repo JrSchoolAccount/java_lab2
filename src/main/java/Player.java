@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Player implements Movable {
+public class Player implements Movable, Obstacle {
     private String name;
     private int x, y, health, attack, defense;
     private int damageTaken, points = 0;
@@ -35,6 +35,11 @@ public class Player implements Movable {
         } else {
             System.out.println("You can't move there!!");
         }
+    }
+
+    @Override
+    public boolean isBlocking() {
+        return true;
     }
 
     public void heal(int amount) {
