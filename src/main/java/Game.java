@@ -46,6 +46,8 @@ public class Game {
         items.add(new Upgrade(5, 4, "weapon", 2));
         items.add(new Upgrade(7, 5, "armor", 2));
 
+        items.add(new Exit(9,10));
+
         maze.getCell(player.getX(), player.getY()).setSymbol('P');
 
         for (Monster monster : monsters) {
@@ -92,10 +94,6 @@ public class Game {
         for (Monster monster : monsters) {
             int dx = Integer.compare(player.getX(), monster.getX());
             int dy = Integer.compare(player.getY(), monster.getY());
-
-            // Calculate the monster's next position
-            int nextX = monster.getX() + dx;
-            int nextY = monster.getY() + dy;
 
             boolean isAdjacent = isAdjacent(monster);
 
