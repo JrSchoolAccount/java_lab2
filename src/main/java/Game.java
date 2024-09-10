@@ -93,11 +93,23 @@ public class Game {
             int dx = Integer.compare(player.getX(), monster.getX());
             int dy = Integer.compare(player.getY(), monster.getY());
 
-            if (dx != 0 || dy != 0) {
+            // Calculate the monster's next position
+            int nextX = monster.getX() + dx;
+            int nextY = monster.getY() + dy;
+
+            boolean isAdjacent = isAdjacent(monster);
+
+            if (!isAdjacent) {
                 monster.move(dx, dy, maze);
-                maze.updateMonsterPosition(monsters);
             }
+
+            maze.updateMonsterPosition(monsters);
         }
+    }
+
+    private boolean isAdjacent(Monster monster) {
+        return Math.abs(player.getX() - monster.getX()) <= 1 &&
+                Math.abs(player.getY() - monster.getY()) <= 1;
     }
 
     private void displayPlayerStats() {
