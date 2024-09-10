@@ -6,25 +6,45 @@ public class Game {
     private Maze maze;
     private Player player;
     private List<Monster> monsters;
-    private List<Item> items;
 
     public Game() {
-        maze = new Maze(9, 9);
+        maze = new Maze(10, 12);
         monsters = new ArrayList<>();
-        items = new ArrayList<>();
+        List<Item> items = new ArrayList<>();
 
-        maze.setCell(2, 1, new Wall(2, 1));
+        int[][] wallPositions = {
+                {1, 3}, {1, 5}, {1, 6}, {1, 7}, {1, 11},
+                {2, 1}, {2, 3}, {2, 5}, {2, 6}, {2, 9}, {2, 11},
+                {3, 5}, {3, 6}, {3, 9}, {3, 11},
+                {4, 2}, {4, 3}, {4, 5}, {4, 6}, {4, 9}, {4, 11},
+                {5, 2}, {5, 9}, {5, 11},
+                {6, 2}, {6, 5}, {6, 6}, {6, 9}, {6, 11},
+                {7, 6}, {7, 7}, {7, 9}, {7, 11},
+                {8, 9}, {8, 11}
+        };
 
-        player = new Player("Hero", 0, 1, 5, 3, 3);
-        /*
-        monsters.add(new Monster("Goblin", 4, 4, 10, 2, 1));
-        monsters.add(new Monster("Orc", 5, 5, 15, 3, 3));
+        for (int[] pos : wallPositions) {
+            maze.setCell(pos[0], pos[1], new Wall(pos[0], pos[1]));
+        }
 
-        items.add(new Treasure(1, 1, 2));
-        items.add(new Treasure(2, 3, 2));
-        */
-        items.add(new Upgrade(1, 1,"weapon", 2));
-        items.add(new Upgrade(1, 2,"armor", 2));
+
+
+        player = new Player("Hero", 0, 1, 10, 3, 3);
+
+        monsters.add(new Monster("Goblin", 8, 1, 6, 2, 0));
+        monsters.add(new Monster("Orc", 8, 9, 6, 3, 2));
+
+        items.add(new Treasure(1, 2, 2));
+        items.add(new Treasure(1, 8, 3));
+        items.add(new Treasure(2, 4, 3));
+        items.add(new Treasure(2, 10, 4));
+        items.add(new Treasure(4, 10, 5));
+        items.add(new Treasure(7, 3, 6));
+
+        items.add(new Upgrade(1, 9, "weapon", 2));
+        items.add(new Upgrade(3, 1, "armor", 2));
+        items.add(new Upgrade(5, 4, "weapon", 2));
+        items.add(new Upgrade(7, 5, "armor", 2));
 
         maze.getCell(player.getX(), player.getY()).setSymbol('P');
 
@@ -64,18 +84,23 @@ public class Game {
                     System.out.println("Invalid input.");
                     break;
             }
-            for (Monster monster : monsters) {
-                int dx = Integer.compare(player.getX(), monster.getX());
-                int dy = Integer.compare(player.getY(), monster.getY());
+            MoveMonsters();
+        }
+    }
 
-                monster.move(dx, dy, maze);
-                maze.updateMonsterPosition(monsters);
-            }
+    private void MoveMonsters() {
+        for (Monster monster : monsters) {
+            int dx = Integer.compare(player.getX(), monster.getX());
+            int dy = Integer.compare(player.getY(), monster.getY());
+
+            monster.move(dx, dy, maze);
+            maze.updateMonsterPosition(monsters);
         }
     }
 
     private void displayPlayerStats() {
-        System.out.println("Name: " + player.getName() +
+        System.out.println(
+                "Name: " + player.getName() +
                 ", HP: " + player.getHealth() +
                 ", ATK: " + player.getAttack() +
                 ", DEF: " + player.getDefense() +
