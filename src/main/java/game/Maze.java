@@ -1,3 +1,5 @@
+package game;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,14 +23,14 @@ public class Maze {
 
     public Cell getCell(int x, int y) {
         if (x < 0 || y < 0 || x >= grid.size() || y >= grid.getFirst().size()) {
-            throw new IndexOutOfBoundsException("Cell coordinates out of bounds");
+            throw new IndexOutOfBoundsException("objects.Cell coordinates out of bounds");
         }
         return grid.get(x).get(y);
     }
 
     public void setCell(int x, int y, Cell cell) {
         if (x < 0 || y < 0 || x >= grid.size() || y >= grid.getFirst().size()) {
-            throw new IndexOutOfBoundsException("Cell coordinates out of bounds");
+            throw new IndexOutOfBoundsException("objects.Cell coordinates out of bounds");
         }
         grid.get(x).set(y, cell);
     }

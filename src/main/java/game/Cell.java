@@ -1,3 +1,7 @@
+package game;
+
+import items.Item;
+
 public class Cell {
     private int x, y;
     private char symbol;

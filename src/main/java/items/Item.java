@@ -1,3 +1,7 @@
+package items;
+
+import game.Player;
+
 public abstract class Item {
     private int x, y;
     private char symbol;

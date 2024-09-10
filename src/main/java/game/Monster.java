@@ -1,3 +1,5 @@
+package game;
+
 public class Monster implements Movable, Obstacle {
     private String name;
     private int x, y, health, attack, defense;

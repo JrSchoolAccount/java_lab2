@@ -1,3 +1,7 @@
+package items;
+
+import game.Player;
+
 public class Treasure extends Item {
     private final int value;
 

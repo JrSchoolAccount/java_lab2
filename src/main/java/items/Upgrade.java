@@ -1,3 +1,7 @@
+package items;
+
+import game.Player;
+
 public class Upgrade extends Item {
     private String type;
     private int bonus;

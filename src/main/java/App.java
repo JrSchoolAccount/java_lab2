@@ -1,13 +1,16 @@
+import items.*;
+import game.*;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Game {
+public class App {
     private Maze maze;
     private Player player;
     private List<Monster> monsters;
 
-    public Game() {
+    public App() {
         maze = new Maze(10, 12);
         monsters = new ArrayList<>();
         List<Item> items = new ArrayList<>();
@@ -120,7 +123,7 @@ public class Game {
     }
 
     public static void main(String[] args) {
-        Game game = new Game();
-        game.start();
+        App app = new App();
+        app.start();
     }
 }

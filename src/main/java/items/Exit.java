@@ -1,3 +1,7 @@
+package items;
+
+import game.Player;
+
 public class Exit extends Item {
     public Exit(int x, int y) {
         super(x, y, 'X');

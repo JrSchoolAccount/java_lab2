@@ -1,5 +1,6 @@
-import java.util.ArrayList;
-import java.util.List;
+package game;
+
+import items.Item;
 
 public class Player implements Movable, Obstacle {
     private String name;
