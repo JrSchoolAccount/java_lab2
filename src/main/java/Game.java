@@ -93,8 +93,10 @@ public class Game {
             int dx = Integer.compare(player.getX(), monster.getX());
             int dy = Integer.compare(player.getY(), monster.getY());
 
-            monster.move(dx, dy, maze);
-            maze.updateMonsterPosition(monsters);
+            if (dx != 0 || dy != 0) {
+                monster.move(dx, dy, maze);
+                maze.updateMonsterPosition(monsters);
+            }
         }
     }
 
